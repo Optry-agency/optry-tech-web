@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollDepth from "@/components/ScrollDepth";
 import ScrollReveal from "@/components/ScrollReveal";
+import CursorParallax from "@/components/CursorParallax";
 
 const montserrat = localFont({
   src: "../public/fonts/Montserrat-Variable.ttf",
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className={`${montserrat.variable} ${inter.variable}`}>
         <ScrollDepth />
         <ScrollReveal />
+        <CursorParallax />
         <Header />
         <main>{children}</main>
         <Footer />
