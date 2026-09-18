@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <section className="section--dark section">
+      <section className="section">
         <div className="container">
           <span className="eyebrow reveal">Optry · León, Guanajuato</span>
           <h1 className="reveal" style={{ maxWidth: 720, transitionDelay: "0.05s" }}>
@@ -14,7 +14,6 @@ export default function Home() {
             style={{
               maxWidth: 560,
               fontSize: "1.125rem",
-              opacity: 0.92,
               transitionDelay: "0.1s",
             }}
           >
@@ -36,7 +35,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--tint">
         <div className="container">
           <span className="eyebrow reveal">Cómo trabajamos</span>
           <h2 className="reveal">Dos formas de resolver tu operación</h2>
@@ -101,7 +100,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section--dark section">
+      <section className="section section--tint">
         <div className="container reveal" style={{ textAlign: "center" }}>
           <h2>¿Tu negocio todavía opera a mano?</h2>
           <p style={{ maxWidth: 480, margin: "0 auto 24px" }}>

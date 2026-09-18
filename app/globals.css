@@ -4,11 +4,12 @@
   --color-accent: #E2AB44;
   --color-white: #FFFFFF;
   --color-ink: #12241C;
+  --color-cream: #F6F4ED;
 
-  /* Fondo/texto de fondo — animados por el scroll (ver ScrollDepth) */
-  --color-bg: #F6F4ED;
-  --color-fg: #12241C;
-  --color-fg-muted: rgba(18, 36, 28, 0.66);
+  /* Fondo — se anima muy sutilmente con el scroll (ver ScrollDepth).
+     El texto NO se anima: el blanco predomina siempre, así que el
+     contraste con --color-ink nunca está en riesgo. */
+  --color-bg: #FFFFFF;
 
   --font-heading: var(--font-montserrat), "Arial Black", sans-serif;
   --font-body: var(--font-inter), Arial, sans-serif;
@@ -38,11 +39,11 @@ body {
 
 body {
   background: var(--color-bg);
-  color: var(--color-fg);
+  color: var(--color-ink);
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.55;
-  transition: background-color 0.4s var(--ease-out), color 0.4s var(--ease-out);
+  transition: background-color 0.5s var(--ease-out);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -52,6 +53,7 @@ h1, h2, h3 {
   line-height: 1.15;
   letter-spacing: -0.01em;
   margin: 0 0 1rem 0;
+  color: var(--color-ink);
 }
 
 h1 { font-size: clamp(2.25rem, 4vw, 3rem); }
@@ -60,7 +62,7 @@ h3 { font-size: 1.25rem; font-weight: 600; }
 
 p {
   margin: 0 0 1rem 0;
-  color: var(--color-fg-muted);
+  color: rgba(18, 36, 28, 0.68);
 }
 
 a {
@@ -77,6 +79,14 @@ a {
   padding: 96px 0;
 }
 
+/* Franja tenue color crema para separar secciones sin romper el blanco
+   dominante — reemplaza los fondos verdes sólidos que había antes. */
+.section--tint {
+  background: var(--color-cream);
+}
+
+/* Se conserva por si algún bloque puntual (nunca una página completa)
+   necesita el verde sólido de marca — úsalo con moderación. */
 .section--dark {
   background: var(--color-primary);
   color: var(--color-white);
@@ -101,7 +111,6 @@ a {
   text-transform: uppercase;
   color: var(--color-primary);
   margin-bottom: 14px;
-  transition: color 0.4s var(--ease-out);
 }
 
 .section--dark .eyebrow {
@@ -136,46 +145,58 @@ a {
 .btn--primary {
   background: var(--color-accent);
   color: var(--color-ink);
-  box-shadow: 0 8px 20px -8px rgba(226, 171, 68, 0.65);
+  box-shadow: 0 8px 20px -8px rgba(226, 171, 68, 0.55);
 }
 
 .btn--primary:hover {
-  box-shadow: 0 12px 28px -8px rgba(226, 171, 68, 0.75);
+  box-shadow: 0 12px 28px -8px rgba(226, 171, 68, 0.65);
 }
 
 .btn--secondary {
-  background: rgba(255, 255, 255, 0.08);
+  background: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid rgba(30, 77, 59, 0.35);
+}
+
+.btn--secondary:hover {
+  background: rgba(30, 77, 59, 0.06);
+}
+
+/* Variante para usarse solo dentro de un bloque .section--dark */
+.btn--on-dark {
+  background: rgba(255, 255, 255, 0.1);
   color: var(--color-white);
   border: 1.5px solid rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(8px);
 }
 
-.btn--secondary:hover {
-  background: rgba(255, 255, 255, 0.16);
+.btn--on-dark:hover {
+  background: rgba(255, 255, 255, 0.18);
 }
 
-/* Tarjetas — profundidad suave tipo clay/iOS, texto siempre fijo (el fondo no se anima) */
+/* Tarjetas — profundidad suave tipo clay/iOS */
 .card {
   background: var(--color-white);
   color: var(--color-ink);
   border-radius: var(--radius);
   padding: 32px;
   height: 100%;
+  border: 1px solid rgba(18, 36, 28, 0.06);
   box-shadow:
-    0 1px 2px rgba(18, 36, 28, 0.04),
-    0 12px 32px -16px rgba(18, 36, 28, 0.18);
+    0 1px 2px rgba(18, 36, 28, 0.03),
+    0 12px 32px -18px rgba(18, 36, 28, 0.14);
   transition: transform 0.35s var(--ease-spring), box-shadow 0.35s var(--ease-out);
 }
 
 .card p {
-  color: rgba(18, 36, 28, 0.7);
+  color: rgba(18, 36, 28, 0.68);
 }
 
 .card:hover {
   transform: translateY(-4px);
   box-shadow:
-    0 1px 2px rgba(18, 36, 28, 0.05),
-    0 24px 48px -20px rgba(18, 36, 28, 0.24);
+    0 1px 2px rgba(18, 36, 28, 0.04),
+    0 24px 48px -20px rgba(18, 36, 28, 0.18);
 }
 
 .grid {

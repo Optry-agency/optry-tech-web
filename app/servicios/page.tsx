@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function Servicios() {
   return (
     <>
-      <section className="section--dark section">
+      <section className="section">
         <div className="container">
           <span className="eyebrow reveal">Servicios</span>
           <h1 className="reveal" style={{ transitionDelay: "0.05s" }}>
@@ -19,7 +19,7 @@ export default function Servicios() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--tint">
         <div className="container">
           <span className="tag reveal">Segmento 1</span>
           <h2 className="reveal">Sistema a la medida para tu negocio local</h2>
@@ -91,7 +91,7 @@ export default function Servicios() {
         </div>
       </section>
 
-      <section className="section--dark section">
+      <section className="section section--tint">
         <div className="container reveal" style={{ textAlign: "center" }}>
           <h2>¿No estás seguro en cuál encajas?</h2>
           <p style={{ maxWidth: 480, margin: "0 auto 24px" }}>

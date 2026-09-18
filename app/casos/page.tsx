@@ -30,20 +30,20 @@ const casos = [
 export default function Casos() {
   return (
     <>
-      <section className="section--dark section">
+      <section className="section">
         <div className="container">
           <span className="eyebrow reveal">Casos</span>
           <h1 className="reveal" style={{ transitionDelay: "0.05s" }}>
             Sistemas que ya están corriendo
           </h1>
-          <p className="reveal" style={{ maxWidth: 560, opacity: 0.92, transitionDelay: "0.1s" }}>
+          <p className="reveal" style={{ maxWidth: 560, transitionDelay: "0.1s" }}>
             Por confidencialidad no mostramos el nombre del negocio, pero
             estos son sistemas reales, en uso todos los días.
           </p>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--tint">
         <div className="container">
           <div className="grid grid--3">
             {casos.map((c, i) => (
@@ -61,7 +61,7 @@ export default function Casos() {
         </div>
       </section>
 
-      <section className="section--dark section">
+      <section className="section">
         <div className="container reveal" style={{ textAlign: "center" }}>
           <h2>¿Quieres ser el siguiente caso?</h2>
           <Link href="/contacto" className="btn btn--primary">
