@@ -76,7 +76,25 @@ a {
 }
 
 .section {
+  position: relative;
+  overflow: hidden;
   padding: 96px 0;
+}
+
+.section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Grafico de circuito como fondo ambiental de una seccion (ver CircuitArt) */
+.section-art-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.09;
+  pointer-events: none;
 }
 
 /* Franja tenue color crema para separar secciones sin romper el blanco

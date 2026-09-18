@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CircuitArt from "@/components/CircuitArt";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function Casos() {
   return (
     <>
       <section className="section">
+        <CircuitArt className="section-art-bg" />
         <div className="container">
           <div className="kicker reveal"><span className="kicker-line" /><span className="kicker-label">Casos</span></div>
           <h1 className="reveal" style={{ transitionDelay: "0.05s" }}>
@@ -44,6 +46,7 @@ export default function Casos() {
       </section>
 
       <section className="section section--tint">
+        <CircuitArt className="section-art-bg" />
         <div className="container">
           <div className="grid grid--3">
             {casos.map((c, i) => (
@@ -62,6 +65,7 @@ export default function Casos() {
       </section>
 
       <section className="section">
+        <CircuitArt className="section-art-bg" />
         <div className="container reveal" style={{ textAlign: "center" }}>
           <h2>¿Quieres ser el siguiente caso?</h2>
           <Link href="/contacto" className="btn btn--primary">

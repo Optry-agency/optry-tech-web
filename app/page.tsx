@@ -6,53 +6,52 @@ export default function Home() {
   return (
     <>
       <section className={styles.hero}>
-        <div className={`container ${styles.grid}`}>
-          <div>
-            <div className="kicker reveal">
-              <span className="kicker-line" />
-              <span className="kicker-label">Automatización de software</span>
-            </div>
-            <h1 className="display reveal" style={{ transitionDelay: "0.05s" }}>
-              <span>Automatiza</span>
-              <span>Conecta</span>
-              <span>Escala</span>
-            </h1>
-            <p
-              className="reveal"
-              style={{ maxWidth: 480, fontSize: "1.125rem", transitionDelay: "0.1s" }}
-            >
-              Reemplazamos las hojas de cálculo, el WhatsApp y la memoria con
-              software a medida y automatización con IA — sin la fricción ni el
-              costo de una agencia grande.
-            </p>
-            <div
-              className="reveal"
-              style={{ display: "flex", gap: 16, marginTop: 8, transitionDelay: "0.15s" }}
-            >
-              <Link href="/contacto" className="btn btn--primary">
-                Cuéntanos tu caso
-              </Link>
-              <Link href="/servicios" className="btn btn--secondary">
-                Ver qué hacemos
-              </Link>
-            </div>
-
-            <div className={`${styles.footerLine} reveal`} style={{ transitionDelay: "0.2s" }}>
-              <span className="tagline-mini">
-                Menos caos
-                <br />
-                Más control
-              </span>
-              <span className="tagline-mini" style={{ textAlign: "right" }}>
-                León, Guanajuato
-              </span>
-            </div>
+        <CircuitArt className={styles.art} />
+        <div className={`container ${styles.content}`}>
+          <div className="kicker reveal">
+            <span className="kicker-line" />
+            <span className="kicker-label">Automatización de software</span>
           </div>
-          <CircuitArt className={`${styles.art} reveal`} />
+          <h1 className="display reveal" style={{ transitionDelay: "0.05s" }}>
+            <span>Automatiza</span>
+            <span>Conecta</span>
+            <span>Escala</span>
+          </h1>
+          <p
+            className="reveal"
+            style={{ maxWidth: 480, fontSize: "1.125rem", transitionDelay: "0.1s" }}
+          >
+            Reemplazamos las hojas de cálculo, el WhatsApp y la memoria con
+            software a medida y automatización con IA — sin la fricción ni el
+            costo de una agencia grande.
+          </p>
+          <div
+            className="reveal"
+            style={{ display: "flex", gap: 16, marginTop: 8, transitionDelay: "0.15s" }}
+          >
+            <Link href="/contacto" className="btn btn--primary">
+              Cuéntanos tu caso
+            </Link>
+            <Link href="/servicios" className="btn btn--secondary">
+              Ver qué hacemos
+            </Link>
+          </div>
+
+          <div className={`${styles.footerLine} reveal`} style={{ transitionDelay: "0.2s" }}>
+            <span className="tagline-mini">
+              Menos caos
+              <br />
+              Más control
+            </span>
+            <span className="tagline-mini" style={{ textAlign: "right" }}>
+              León, Guanajuato
+            </span>
+          </div>
         </div>
       </section>
 
       <section className="section section--tint">
+        <CircuitArt className="section-art-bg" />
         <div className="container">
           <div className="kicker reveal">
             <span className="kicker-line" />
@@ -85,6 +84,7 @@ export default function Home() {
       </section>
 
       <section className="section">
+        <CircuitArt className="section-art-bg" />
         <div className="container">
           <div className="kicker reveal">
             <span className="kicker-line" />
@@ -124,6 +124,7 @@ export default function Home() {
       </section>
 
       <section className="section section--tint">
+        <CircuitArt className="section-art-bg" />
         <div className="container reveal" style={{ textAlign: "center" }}>
           <h2>¿Tu negocio todavía opera a mano?</h2>
           <p style={{ maxWidth: 480, margin: "0 auto 24px" }}>

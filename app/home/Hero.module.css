@@ -4,33 +4,25 @@
   padding: 72px 0 96px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  gap: 32px;
-  position: relative;
-}
-
-@media (min-width: 960px) {
-  .grid {
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 48px;
-  }
-}
-
 .art {
-  display: none;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  justify-self: center;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.6;
 }
 
-@media (min-width: 960px) {
+@media (max-width: 640px) {
   .art {
-    display: block;
-    max-width: 420px;
+    opacity: 0.35;
   }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 620px;
 }
 
 .footerLine {

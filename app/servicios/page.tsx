@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CircuitArt from "@/components/CircuitArt";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,6 +12,7 @@ export default function Servicios() {
   return (
     <>
       <section className="section">
+        <CircuitArt className="section-art-bg" />
         <div className="container">
           <div className="kicker reveal"><span className="kicker-line" /><span className="kicker-label">Servicios</span></div>
           <h1 className="reveal" style={{ transitionDelay: "0.05s" }}>
@@ -20,6 +22,7 @@ export default function Servicios() {
       </section>
 
       <section className="section section--tint">
+        <CircuitArt className="section-art-bg" />
         <div className="container">
           <div className="kicker reveal"><span className="kicker-line" /><span className="kicker-label">Segmento 1</span></div>
           <h2 className="reveal">Sistema a la medida para tu negocio local</h2>
@@ -56,6 +59,7 @@ export default function Servicios() {
       </section>
 
       <section className="section">
+        <CircuitArt className="section-art-bg" />
         <div className="container">
           <div className="kicker reveal"><span className="kicker-line" /><span className="kicker-label">Segmento 2</span></div>
           <h2 className="reveal">Automatización con IA para operaciones de más volumen</h2>
@@ -92,6 +96,7 @@ export default function Servicios() {
       </section>
 
       <section className="section section--tint">
+        <CircuitArt className="section-art-bg" />
         <div className="container reveal" style={{ textAlign: "center" }}>
           <h2>¿No estás seguro en cuál encajas?</h2>
           <p style={{ maxWidth: 480, margin: "0 auto 24px" }}>

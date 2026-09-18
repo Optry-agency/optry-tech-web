@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CircuitArt from "@/components/CircuitArt";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 export default function Contacto() {
   return (
     <section className="section">
+      <CircuitArt className="section-art-bg" />
       <div className="container">
         <div className="kicker reveal"><span className="kicker-line" /><span className="kicker-label">Contacto</span></div>
         <h1 className="reveal">Platiquemos de tu negocio</h1>
