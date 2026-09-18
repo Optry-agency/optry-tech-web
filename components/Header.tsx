@@ -15,6 +15,11 @@ export default function Header() {
             priority
           />
         </Link>
+        <span className={styles.masthead}>
+          Software
+          <br />
+          para un mayor impacto
+        </span>
         <nav className={styles.nav}>
           <Link href="/servicios">Servicios</Link>
           <Link href="/casos">Casos</Link>

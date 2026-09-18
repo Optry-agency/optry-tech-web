@@ -1,0 +1,44 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 0 96px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 32px;
+  position: relative;
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+  }
+}
+
+.art {
+  display: none;
+  width: 100%;
+  height: auto;
+  justify-self: center;
+}
+
+@media (min-width: 960px) {
+  .art {
+    display: block;
+    max-width: 420px;
+  }
+}
+
+.footerLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 56px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(18, 36, 28, 0.1);
+}

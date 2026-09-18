@@ -117,6 +117,64 @@ a {
   color: var(--color-accent);
 }
 
+/* "Kicker" — línea corta + etiqueta en versalitas, lenguaje tipográfico
+   tomado de las piezas de Instagram de Optry (poster/editorial). */
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.kicker-line {
+  width: 28px;
+  height: 1.5px;
+  background: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.kicker-label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #B98A2E;
+}
+
+.section--dark .kicker-line {
+  background: var(--color-accent);
+}
+
+.section--dark .kicker-label {
+  color: var(--color-accent);
+}
+
+/* Titular tipo poster — mayúsculas, apilado, muy compacto */
+.display {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  margin: 0 0 1.5rem 0;
+}
+
+.display span {
+  display: block;
+}
+
+.tagline-mini {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.7;
+  color: var(--color-primary);
+}
+
 /* Botones — pill, prensado tipo iOS */
 .btn {
   display: inline-flex;

@@ -32,7 +32,7 @@ export default function Casos() {
     <>
       <section className="section">
         <div className="container">
-          <span className="eyebrow reveal">Casos</span>
+          <div className="kicker reveal"><span className="kicker-line" /><span className="kicker-label">Casos</span></div>
           <h1 className="reveal" style={{ transitionDelay: "0.05s" }}>
             Sistemas que ya están corriendo
           </h1>

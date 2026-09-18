@@ -1,43 +1,63 @@
 import Link from "next/link";
+import CircuitArt from "@/components/CircuitArt";
+import styles from "./home/Hero.module.css";
 
 export default function Home() {
   return (
     <>
-      <section className="section">
-        <div className="container">
-          <span className="eyebrow reveal">Optry · León, Guanajuato</span>
-          <h1 className="reveal" style={{ maxWidth: 720, transitionDelay: "0.05s" }}>
-            Del caos operativo a un negocio que corre solo.
-          </h1>
-          <p
-            className="reveal"
-            style={{
-              maxWidth: 560,
-              fontSize: "1.125rem",
-              transitionDelay: "0.1s",
-            }}
-          >
-            Reemplazamos las hojas de cálculo, el WhatsApp y la memoria con
-            software a medida y automatización con IA — sin la fricción ni el
-            costo de una agencia grande.
-          </p>
-          <div
-            className="reveal"
-            style={{ display: "flex", gap: 16, marginTop: 32, transitionDelay: "0.15s" }}
-          >
-            <Link href="/contacto" className="btn btn--primary">
-              Cuéntanos tu caso
-            </Link>
-            <Link href="/servicios" className="btn btn--secondary">
-              Ver qué hacemos
-            </Link>
+      <section className={styles.hero}>
+        <div className={`container ${styles.grid}`}>
+          <div>
+            <div className="kicker reveal">
+              <span className="kicker-line" />
+              <span className="kicker-label">Automatización de software</span>
+            </div>
+            <h1 className="display reveal" style={{ transitionDelay: "0.05s" }}>
+              <span>Automatiza</span>
+              <span>Conecta</span>
+              <span>Escala</span>
+            </h1>
+            <p
+              className="reveal"
+              style={{ maxWidth: 480, fontSize: "1.125rem", transitionDelay: "0.1s" }}
+            >
+              Reemplazamos las hojas de cálculo, el WhatsApp y la memoria con
+              software a medida y automatización con IA — sin la fricción ni el
+              costo de una agencia grande.
+            </p>
+            <div
+              className="reveal"
+              style={{ display: "flex", gap: 16, marginTop: 8, transitionDelay: "0.15s" }}
+            >
+              <Link href="/contacto" className="btn btn--primary">
+                Cuéntanos tu caso
+              </Link>
+              <Link href="/servicios" className="btn btn--secondary">
+                Ver qué hacemos
+              </Link>
+            </div>
+
+            <div className={`${styles.footerLine} reveal`} style={{ transitionDelay: "0.2s" }}>
+              <span className="tagline-mini">
+                Menos caos
+                <br />
+                Más control
+              </span>
+              <span className="tagline-mini" style={{ textAlign: "right" }}>
+                León, Guanajuato
+              </span>
+            </div>
           </div>
+          <CircuitArt className={`${styles.art} reveal`} />
         </div>
       </section>
 
       <section className="section section--tint">
         <div className="container">
-          <span className="eyebrow reveal">Cómo trabajamos</span>
+          <div className="kicker reveal">
+            <span className="kicker-line" />
+            <span className="kicker-label">Cómo trabajamos</span>
+          </div>
           <h2 className="reveal">Dos formas de resolver tu operación</h2>
           <div className="grid grid--2" style={{ marginTop: 32 }}>
             <div className="card reveal">
@@ -66,7 +86,10 @@ export default function Home() {
 
       <section className="section">
         <div className="container">
-          <span className="eyebrow reveal">Casos</span>
+          <div className="kicker reveal">
+            <span className="kicker-line" />
+            <span className="kicker-label">Casos</span>
+          </div>
           <h2 className="reveal">Ya lo hemos construido</h2>
           <div className="grid grid--3" style={{ marginTop: 32 }}>
             <div className="card reveal">

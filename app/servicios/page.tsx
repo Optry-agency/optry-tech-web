@@ -12,7 +12,7 @@ export default function Servicios() {
     <>
       <section className="section">
         <div className="container">
-          <span className="eyebrow reveal">Servicios</span>
+          <div className="kicker reveal"><span className="kicker-line" /><span className="kicker-label">Servicios</span></div>
           <h1 className="reveal" style={{ transitionDelay: "0.05s" }}>
             Dos formas de trabajar contigo, según cómo opera tu negocio
           </h1>
@@ -21,7 +21,7 @@ export default function Servicios() {
 
       <section className="section section--tint">
         <div className="container">
-          <span className="tag reveal">Segmento 1</span>
+          <div className="kicker reveal"><span className="kicker-line" /><span className="kicker-label">Segmento 1</span></div>
           <h2 className="reveal">Sistema a la medida para tu negocio local</h2>
           <p className="reveal" style={{ maxWidth: 640 }}>
             Para dueños de restaurantes, gimnasios, talleres y constructoras
@@ -57,7 +57,7 @@ export default function Servicios() {
 
       <section className="section">
         <div className="container">
-          <span className="tag reveal">Segmento 2</span>
+          <div className="kicker reveal"><span className="kicker-line" /><span className="kicker-label">Segmento 2</span></div>
           <h2 className="reveal">Automatización con IA para operaciones de más volumen</h2>
           <p className="reveal" style={{ maxWidth: 640 }}>
             Para restaurantes con varias sucursales, cadenas, clínicas con

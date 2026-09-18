@@ -10,7 +10,7 @@ export default function Contacto() {
   return (
     <section className="section">
       <div className="container">
-        <span className="eyebrow reveal">Contacto</span>
+        <div className="kicker reveal"><span className="kicker-line" /><span className="kicker-label">Contacto</span></div>
         <h1 className="reveal">Platiquemos de tu negocio</h1>
         <p className="reveal" style={{ maxWidth: 520, marginBottom: 40 }}>
           Sin relleno ni presentación de ventas — cuéntanos cómo operas hoy
