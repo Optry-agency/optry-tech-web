@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ScrollDepth from "@/components/ScrollDepth";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const montserrat = localFont({
   src: "../public/fonts/Montserrat-Variable.ttf",
@@ -30,6 +32,8 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${montserrat.variable} ${inter.variable}`}>
+        <ScrollDepth />
+        <ScrollReveal />
         <Header />
         <main>{children}</main>
         <Footer />

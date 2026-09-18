@@ -1,9 +1,12 @@
 .header {
-  background: var(--color-bg);
-  border-bottom: 1px solid rgba(18, 36, 28, 0.08);
+  background: color-mix(in srgb, var(--color-bg) 72%, transparent);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(18, 36, 28, 0.06);
   position: sticky;
   top: 0;
   z-index: 10;
+  transition: background-color 0.4s var(--ease-out);
 }
 
 .inner {
@@ -17,6 +20,11 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 0.8;
 }
 
 .nav {
@@ -27,6 +35,24 @@
   font-size: 0.9375rem;
 }
 
-.nav a {
+.nav a:not(.btn) {
   text-decoration: none;
+  position: relative;
+  padding: 4px 0;
+}
+
+.nav a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -2px;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 999px;
+  transition: right 0.25s var(--ease-out);
+}
+
+.nav a:not(.btn):hover::after {
+  right: 0;
 }

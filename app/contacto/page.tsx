@@ -10,13 +10,15 @@ export default function Contacto() {
   return (
     <section className="section">
       <div className="container">
-        <span className="eyebrow">Contacto</span>
-        <h1>Platiquemos de tu negocio</h1>
-        <p style={{ maxWidth: 520, marginBottom: 40 }}>
+        <span className="eyebrow reveal">Contacto</span>
+        <h1 className="reveal">Platiquemos de tu negocio</h1>
+        <p className="reveal" style={{ maxWidth: 520, marginBottom: 40 }}>
           Sin relleno ni presentación de ventas — cuéntanos cómo operas hoy
           y te decimos honestamente si podemos ayudarte.
         </p>
-        <ContactForm />
+        <div className="reveal" style={{ transitionDelay: "0.08s" }}>
+          <ContactForm />
+        </div>
       </div>
     </section>
   );

@@ -32,9 +32,11 @@ export default function Casos() {
     <>
       <section className="section--dark section">
         <div className="container">
-          <span className="eyebrow">Casos</span>
-          <h1>Sistemas que ya están corriendo</h1>
-          <p style={{ maxWidth: 560, opacity: 0.92 }}>
+          <span className="eyebrow reveal">Casos</span>
+          <h1 className="reveal" style={{ transitionDelay: "0.05s" }}>
+            Sistemas que ya están corriendo
+          </h1>
+          <p className="reveal" style={{ maxWidth: 560, opacity: 0.92, transitionDelay: "0.1s" }}>
             Por confidencialidad no mostramos el nombre del negocio, pero
             estos son sistemas reales, en uso todos los días.
           </p>
@@ -44,8 +46,12 @@ export default function Casos() {
       <section className="section">
         <div className="container">
           <div className="grid grid--3">
-            {casos.map((c) => (
-              <div className="card" key={c.title}>
+            {casos.map((c, i) => (
+              <div
+                className="card reveal"
+                key={c.title}
+                style={{ transitionDelay: `${i * 0.08}s` }}
+              >
                 <span className="tag">{c.tag}</span>
                 <h3>{c.title}</h3>
                 <p>{c.body}</p>
@@ -56,7 +62,7 @@ export default function Casos() {
       </section>
 
       <section className="section--dark section">
-        <div className="container" style={{ textAlign: "center" }}>
+        <div className="container reveal" style={{ textAlign: "center" }}>
           <h2>¿Quieres ser el siguiente caso?</h2>
           <Link href="/contacto" className="btn btn--primary">
             Cuéntanos tu caso
