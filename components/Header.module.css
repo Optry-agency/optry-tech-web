@@ -1,0 +1,32 @@
+.header {
+  background: var(--color-bg);
+  border-bottom: 1px solid rgba(18, 36, 28, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.nav a {
+  text-decoration: none;
+}

@@ -1,0 +1,148 @@
+:root {
+  --color-primary: #1E4D3B;
+  --color-bg: #F6F4ED;
+  --color-accent: #E2AB44;
+  --color-text: #12241C;
+  --color-white: #FFFFFF;
+
+  --font-heading: var(--font-montserrat), "Arial Black", sans-serif;
+  --font-body: var(--font-inter), Arial, sans-serif;
+
+  --radius: 12px;
+  --space: 8px;
+  --max-width: 1120px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+
+p {
+  margin: 0 0 1rem 0;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 64px 0;
+}
+
+.section--dark {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.section--dark h1,
+.section--dark h2,
+.section--dark h3 {
+  color: var(--color-white);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.section--dark .eyebrow {
+  color: var(--color-accent);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.btn:hover {
+  opacity: 0.88;
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-text);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--color-white);
+  border: 1.5px solid var(--color-white);
+}
+
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  padding: 32px;
+  height: 100%;
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid--2 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid--3 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--color-bg);
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
