@@ -1,29 +1,49 @@
+import Link from "next/link";
 import Image from "next/image";
+import CircuitArt from "@/components/CircuitArt";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={`container ${styles.inner}`}>
-        <div className={styles.brand}>
-          <Image
-            src="/optry-isotipo-fondo-crema.svg"
-            alt=""
-            width={32}
-            height={32}
-          />
-          <span>Optry</span>
+      <CircuitArt className="section-art-bg" />
+      <div className={`container ${styles.top}`}>
+        <div className={styles.brandBlock}>
+          <div className={styles.brand}>
+            <Image
+              src="/optry-isotipo-transparente.svg"
+              alt=""
+              width={30}
+              height={30}
+            />
+            <span>Optry</span>
+          </div>
+          <p className={styles.tagline}>
+            Software a medida y automatización con IA para negocios de León,
+            Guanajuato.
+          </p>
         </div>
-        <p className={styles.tag}>
-          Software a medida y automatización con IA para negocios de León,
-          Guanajuato.
-        </p>
-        <a href="mailto:optry.tech@gmail.com" className={styles.email}>
-          optry.tech@gmail.com
-        </a>
-        <p className={styles.copy}>
-          © {new Date().getFullYear()} Optry. Todos los derechos reservados.
-        </p>
+
+        <nav className={styles.linkGroup}>
+          <span className="tagline-mini">Sitio</span>
+          <Link href="/servicios">Servicios</Link>
+          <Link href="/casos">Casos</Link>
+          <Link href="/contacto">Contacto</Link>
+        </nav>
+
+        <div className={styles.linkGroup}>
+          <span className="tagline-mini">Contacto</span>
+          <a href="mailto:optry.tech@gmail.com" className={styles.email}>
+            optry.tech@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div className={`container ${styles.bottomBar}`}>
+        <span className="tagline-mini">Optry · Automatización e integraciones</span>
+        <span className="tagline-mini">
+          © {new Date().getFullYear()} Todos los derechos reservados
+        </span>
       </div>
     </footer>
   );
