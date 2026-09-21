@@ -5,7 +5,7 @@
   border-bottom: 1px solid rgba(18, 36, 28, 0.08);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
   transition: background-color 0.4s var(--ease-out);
 }
 
@@ -13,15 +13,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  height: 76px;
+  gap: 16px;
+  height: 84px;
 }
 
 .logo {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
   text-decoration: none;
   transition: opacity 0.2s ease;
+}
+
+.logo :global(img) {
+  height: 42px;
+  width: auto;
+}
+
+@media (min-width: 720px) {
+  .logo :global(img) {
+    height: 52px;
+  }
 }
 
 .logo:hover {
@@ -39,6 +51,7 @@
   text-align: right;
   line-height: 1.6;
   flex: 1;
+  min-width: 0;
 }
 
 @media (min-width: 860px) {
@@ -47,13 +60,21 @@
   }
 }
 
+/* Nav de escritorio */
 .nav {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 28px;
   font-weight: 500;
   font-size: 0.9375rem;
   flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@media (min-width: 720px) {
+  .nav {
+    display: flex;
+  }
 }
 
 .nav a:not(.btn) {
@@ -76,4 +97,104 @@
 
 .nav a:not(.btn):hover::after {
   right: 0;
+}
+
+/* Botón hamburguesa — solo en móvil/tablet chico */
+.menuButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+@media (min-width: 720px) {
+  .menuButton {
+    display: none;
+  }
+}
+
+.menuIcon,
+.menuIcon::before,
+.menuIcon::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--color-ink);
+  transition: transform 0.25s var(--ease-out), opacity 0.2s ease;
+}
+
+.menuIcon {
+  position: relative;
+}
+
+.menuIcon::before,
+.menuIcon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menuIcon::before {
+  top: -7px;
+}
+
+.menuIcon::after {
+  top: 7px;
+}
+
+.menuIconOpen {
+  background: transparent;
+}
+
+.menuIconOpen::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.menuIconOpen::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* Panel móvil desplegable */
+.mobilePanel {
+  display: grid;
+  grid-template-rows: minmax(0, 0fr);
+  overflow: hidden;
+  background: var(--color-bg);
+  border-bottom: 1px solid transparent;
+  transition: grid-template-rows 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+}
+
+@media (min-width: 720px) {
+  .mobilePanel {
+    display: none;
+  }
+}
+
+.mobilePanelOpen {
+  grid-template-rows: minmax(0, 1fr);
+  border-bottom-color: rgba(18, 36, 28, 0.08);
+}
+
+.mobileNav {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 8px 24px 28px;
+  font-weight: 500;
+  font-size: 1.0625rem;
+}
+
+.mobileNav a:not(.btn) {
+  text-decoration: none;
 }

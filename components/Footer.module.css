@@ -1,15 +1,29 @@
 .footer {
-  background: var(--color-primary);
-  color: var(--color-white);
-  padding: 48px 0;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-cream);
+  border-top: 1px solid rgba(18, 36, 28, 0.1);
   margin-top: 64px;
+  padding-top: 56px;
 }
 
-.inner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
+.top {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding-bottom: 32px;
+}
+
+@media (min-width: 720px) {
+  .top {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+}
+
+.brandBlock {
+  max-width: 360px;
 }
 
 .brand {
@@ -19,23 +33,47 @@
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.125rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
+  color: var(--color-ink);
+  margin-bottom: 12px;
 }
 
-.tag {
-  opacity: 0.85;
-  max-width: 480px;
-  margin: 4px 0;
+.tagline {
+  color: rgba(18, 36, 28, 0.65) !important;
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.linkGroup a {
+  color: var(--color-ink);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.linkGroup a:hover {
+  color: var(--color-primary);
 }
 
 .email {
-  color: var(--color-accent);
-  text-decoration: none;
-  font-weight: 500;
+  color: var(--color-primary) !important;
 }
 
-.copy {
-  opacity: 0.6;
-  font-size: 0.8125rem;
-  margin-top: 16px;
+.bottomBar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(18, 36, 28, 0.1);
 }
