@@ -275,16 +275,6 @@ a {
   background: var(--color-primary);
   color: var(--color-cream);
   box-shadow: 0 8px 20px -8px rgba(30, 77, 59, 0.45);
-  position: relative;
-}
-
-.btn--primary::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--color-accent);
-  flex-shrink: 0;
 }
 
 .btn--primary:hover {
