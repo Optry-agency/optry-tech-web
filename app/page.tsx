@@ -44,7 +44,7 @@ export default function Home() {
               Más control
             </span>
             <span className="tagline-mini" style={{ textAlign: "right" }}>
-              León, Guanajuato
+              You lead.
             </span>
           </div>
         </div>

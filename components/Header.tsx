@@ -35,7 +35,7 @@ export default function Header() {
         <nav className={styles.nav}>
           <Link href="/servicios">Servicios</Link>
           <Link href="/casos">Casos</Link>
-          <Link href="/contacto" className="btn btn--primary">
+          <Link href="/contacto" className={`btn btn--primary ${styles.contactBtn}`}>
             Contáctanos
           </Link>
         </nav>
@@ -54,7 +54,7 @@ export default function Header() {
         <nav className={styles.mobileNav}>
           <Link href="/servicios">Servicios</Link>
           <Link href="/casos">Casos</Link>
-          <Link href="/contacto" className="btn btn--primary">
+          <Link href="/contacto" className={`btn btn--primary ${styles.contactBtn}`}>
             Contáctanos
           </Link>
         </nav>

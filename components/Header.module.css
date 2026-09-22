@@ -99,6 +99,11 @@
   right: 0;
 }
 
+.contactBtn {
+  padding-left: 34px !important;
+  padding-right: 34px !important;
+}
+
 /* Botón hamburguesa — solo en móvil/tablet chico */
 .menuButton {
   display: flex;
