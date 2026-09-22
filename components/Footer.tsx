@@ -19,8 +19,8 @@ export default function Footer() {
             <span>Optry</span>
           </div>
           <p className={styles.tagline}>
-            Software a medida y automatización con IA para negocios de León,
-            Guanajuato.
+            Software a medida, automatización con IA y ciberseguridad para
+            negocios que quieren operar mejor.
           </p>
         </div>
 
@@ -36,11 +36,19 @@ export default function Footer() {
           <a href="mailto:optry.tech@gmail.com" className={styles.email}>
             optry.tech@gmail.com
           </a>
+          <a
+            href="https://wa.me/524751032807"
+            className={styles.email}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp +52 475 103 2807
+          </a>
         </div>
       </div>
 
       <div className={`container ${styles.bottomBar}`}>
-        <span className="tagline-mini">Optry · Automatización e integraciones</span>
+        <span className="tagline-mini">Optry · Automatización, integraciones y ciberseguridad</span>
         <span className="tagline-mini">
           © {new Date().getFullYear()} Todos los derechos reservados
         </span>
