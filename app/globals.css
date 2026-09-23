@@ -210,7 +210,7 @@ a {
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #B98A2E;
+  color: #8C6A22; /* oscurecido desde #B98A2E para contraste AA (4.5:1) sobre fondo claro */
 }
 
 .section--dark .kicker-line {
