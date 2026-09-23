@@ -39,6 +39,25 @@ export default function ContactForm() {
         <span>¿Qué te está quitando más tiempo hoy?</span>
         <textarea name="mensaje" required rows={5} maxLength={4000} />
       </label>
+      {/* Honeypot anti-spam: invisible para una persona, un bot que llena
+          todos los inputs del formulario sí lo llena. Si llega con algo,
+          actions.ts descarta el envío en silencio. */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          top: "-9999px",
+          width: 0,
+          height: 0,
+          overflow: "hidden",
+        }}
+      >
+        <label>
+          Dejar vacío
+          <input name="pagina_web" tabIndex={-1} autoComplete="off" />
+        </label>
+      </div>
       {state.error && <p className={styles.error}>{state.error}</p>}
       <button type="submit" className="btn btn--primary" disabled={pending}>
         {pending ? "Enviando…" : "Enviar"}

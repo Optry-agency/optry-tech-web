@@ -4,13 +4,30 @@ import nodemailer from "nodemailer";
 
 type ContactoResult = { ok: boolean; error?: string };
 
+// Quita saltos de línea de cualquier valor que termine en un header de
+// correo (subject, replyTo) — defensa adicional contra header injection
+// aunque nodemailer también lo sanitice internamente (CVE de versiones
+// viejas: GHSA-c7w3-x93f-qmm8 y relacionados, ver nodemailer >=10).
+function sinSaltosDeLinea(valor: string): string {
+  return valor.replace(/[\r\n]+/g, " ").trim();
+}
+
 export async function enviarContacto(
   _prev: ContactoResult,
   formData: FormData
 ): Promise<ContactoResult> {
-  const nombre = String(formData.get("nombre") ?? "").trim();
-  const negocio = String(formData.get("negocio") ?? "").trim();
-  const contacto = String(formData.get("contacto") ?? "").trim();
+  // Honeypot: campo invisible que ningún humano llena. Si viene con algo,
+  // es un bot — se descarta en silencio (éxito falso) para no darle pistas
+  // de que fue detectado, en vez de contestar un error que le enseñe a
+  // ajustar su envío.
+  const honeypot = String(formData.get("pagina_web") ?? "").trim();
+  if (honeypot) {
+    return { ok: true };
+  }
+
+  const nombre = sinSaltosDeLinea(String(formData.get("nombre") ?? ""));
+  const negocio = sinSaltosDeLinea(String(formData.get("negocio") ?? ""));
+  const contacto = sinSaltosDeLinea(String(formData.get("contacto") ?? ""));
   const mensaje = String(formData.get("mensaje") ?? "").trim();
 
   // Validación en servidor — nunca confiar solo en el required del <input>,
