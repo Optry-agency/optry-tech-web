@@ -1,16 +1,16 @@
 import { ImageResponse } from "next/og";
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 
 export const alt = "Optry — Software y automatización con IA para tu negocio";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default async function Image() {
-  const montserrat = await readFile(
-    join(process.cwd(), "public/fonts/Montserrat-Variable.ttf")
-  );
-
+// Nota: no se usa una fuente de marca (Montserrat) aquí a propósito.
+// next/og (satori) truena con las variable fonts del proyecto
+// (public/fonts/*-Variable.ttf) con "TypeError: Cannot read properties
+// of undefined (reading '256')" al generar la imagen — satori no
+// soporta bien fuentes variables. Se usa la fuente por defecto en vez
+// de invertir en convertir/incluir una fuente estática solo para esto.
+export default function Image() {
   return new ImageResponse(
     (
       <div
@@ -23,7 +23,6 @@ export default async function Image() {
           justifyContent: "center",
           background: "#1E4D3B",
           padding: "90px",
-          fontFamily: "Montserrat",
         }}
       >
         <div
@@ -81,14 +80,6 @@ export default async function Image() {
     ),
     {
       ...size,
-      fonts: [
-        {
-          name: "Montserrat",
-          data: montserrat,
-          style: "normal",
-          weight: 700,
-        },
-      ],
     }
   );
 }
