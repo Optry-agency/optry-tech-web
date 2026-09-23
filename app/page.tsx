@@ -50,39 +50,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section--tint">
-        <CircuitArt className="section-art-bg" />
-        <div className="container">
-          <div className="kicker reveal">
-            <span className="kicker-line" />
-            <span className="kicker-label">Qué resolvemos</span>
-          </div>
-          <h2 className="reveal">Dos formas de resolver tu operación</h2>
-          <div className="grid grid--2" style={{ marginTop: 32 }}>
-            <div className="card reveal">
-              <span className="tag">Negocio local</span>
-              <h3>Sistema a la medida</h3>
-              <p>
-                Punto de venta, control de accesos, bitácoras, inventario —
-                construido para cómo trabaja tu negocio hoy, no al revés.
-                Para dueños que deciden por confianza y cercanía, no por
-                especificaciones técnicas.
-              </p>
-            </div>
-            <div className="card reveal" style={{ transitionDelay: "0.1s" }}>
-              <span className="tag">Más volumen</span>
-              <h3>Automatización con IA</h3>
-              <p>
-                Captura y seguimiento de leads, confirmación de citas y
-                reservas, reportes automáticos. Para negocios con varias
-                sucursales o mucho flujo simultáneo que ya no se puede
-                atender a mano.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="section">
         <CircuitArt className="section-art-bg" />
         <div className="container">
@@ -184,46 +151,6 @@ export default function Home() {
 
       <section className="section section--tint">
         <CircuitArt className="section-art-bg" />
-        <div className="container">
-          <div className="kicker reveal">
-            <span className="kicker-line" />
-            <span className="kicker-label">Casos</span>
-          </div>
-          <h2 className="reveal">Ya lo hemos construido</h2>
-          <div className="grid grid--3" style={{ marginTop: 32 }}>
-            <div className="card reveal">
-              <h3>Sistema anti-fuga de leads</h3>
-              <p>
-                Para clínicas y consultorios: agenda de citas automatizada
-                que confirma y recuerda sin intervención manual.
-              </p>
-            </div>
-            <div className="card reveal" style={{ transitionDelay: "0.08s" }}>
-              <h3>Cuenta corriente y pedidos</h3>
-              <p>
-                Para un negocio familiar de abarrotes: control de pedidos,
-                cuentas de clientes y báscula conectada, en uso real todos
-                los días.
-              </p>
-            </div>
-            <div className="card reveal" style={{ transitionDelay: "0.16s" }}>
-              <h3>Gestión de taller</h3>
-              <p>
-                Inventario, producción y ventas en un solo sistema, con
-                lectores de código de barras e impresión de tickets.
-              </p>
-            </div>
-          </div>
-          <div className="reveal" style={{ marginTop: 32 }}>
-            <Link href="/casos" className="btn btn--primary">
-              Ver todos los casos
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <CircuitArt className="section-art-bg" />
         <div className="container reveal" style={{ textAlign: "center" }}>
           <h2>¿Tu negocio todavía opera a mano?</h2>
           <p style={{ maxWidth: 480, margin: "0 auto 24px" }}>
@@ -232,6 +159,28 @@ export default function Home() {
           </p>
           <Link href="/contacto" className="btn btn--primary">
             Platiquemos
+          </Link>
+        </div>
+      </section>
+
+      <section className="section">
+        <div
+          className="container reveal"
+          style={{
+            display: "flex",
+            gap: 16,
+            justifyContent: "center",
+            flexWrap: "wrap",
+          }}
+        >
+          <Link href="/servicios" className="btn btn--secondary">
+            Qué resolvemos
+          </Link>
+          <Link href="/casos" className="btn btn--secondary">
+            Casos
+          </Link>
+          <Link href="/contacto" className="btn btn--secondary">
+            Contáctanos
           </Link>
         </div>
       </section>
