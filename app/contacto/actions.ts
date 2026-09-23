@@ -1,5 +1,7 @@
 "use server";
 
+import nodemailer from "nodemailer";
+
 type ContactoResult = { ok: boolean; error?: string };
 
 export async function enviarContacto(
@@ -20,14 +22,22 @@ export async function enviarContacto(
     return { ok: false, error: "Uno de los campos es demasiado largo." };
   }
 
-  const webhookUrl = process.env.OPTRY_LEADS_WEBHOOK_URL;
+  // Antes se enviaba a un webhook de n8n — se quitó (2026-09-21) porque se
+  // decidió dejar de pagar la instancia de n8n Cloud. Ahora se manda por
+  // correo directo vía SMTP de Gmail, sin depender de ningún servicio de
+  // terceros de pago.
+  const smtpUser = process.env.OPTRY_SMTP_USER;
+  const smtpPass = process.env.OPTRY_SMTP_PASS;
 
-  if (!webhookUrl) {
-    // Scaffolding inicial: falta conectar el webhook de n8n que recibe los
-    // leads (variable OPTRY_LEADS_WEBHOOK_URL en Vercel). Mientras tanto,
-    // el envío falla explícitamente en vez de perder el lead en silencio.
+  if (!smtpUser || !smtpPass) {
+    // Pendiente de configurar en Vercel: OPTRY_SMTP_USER (el correo de
+    // Gmail que envía, ej. optry.tech@gmail.com) y OPTRY_SMTP_PASS (una
+    // contraseña de aplicación de Gmail — la genera Diego en
+    // https://myaccount.google.com/apppasswords, nunca es la contraseña
+    // normal de la cuenta). Mientras tanto, el envío falla explícitamente
+    // en vez de perder el lead en silencio.
     console.error(
-      "OPTRY_LEADS_WEBHOOK_URL no está configurada — lead no enviado:",
+      "OPTRY_SMTP_USER/OPTRY_SMTP_PASS no configuradas — lead no enviado:",
       { nombre, negocio, contacto, mensaje }
     );
     return {
@@ -38,23 +48,28 @@ export async function enviarContacto(
   }
 
   try {
-    const res = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        nombre,
-        negocio,
-        contacto,
-        mensaje,
-        origen: "optry-tech-web",
-        fecha: new Date().toISOString(),
-      }),
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: { user: smtpUser, pass: smtpPass },
     });
-    if (!res.ok) {
-      throw new Error(`webhook respondió ${res.status}`);
-    }
+
+    await transporter.sendMail({
+      from: `"Optry — sitio web" <${smtpUser}>`,
+      to: "optry.tech@gmail.com",
+      replyTo: contacto.includes("@") ? contacto : undefined,
+      subject: `Nuevo lead del sitio: ${nombre}${negocio ? ` (${negocio})` : ""}`,
+      text: [
+        `Nombre: ${nombre}`,
+        negocio ? `Negocio: ${negocio}` : null,
+        `Contacto: ${contacto}`,
+        "",
+        mensaje,
+      ]
+        .filter((line): line is string => line !== null)
+        .join("\n"),
+    });
   } catch (err) {
-    console.error("Error enviando lead a n8n:", err);
+    console.error("Error enviando lead por correo:", err);
     return {
       ok: false,
       error:

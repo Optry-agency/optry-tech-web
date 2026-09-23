@@ -71,7 +71,7 @@ export default function Home() {
             </div>
             <div className="card reveal" style={{ transitionDelay: "0.1s" }}>
               <span className="tag">Más volumen</span>
-              <h3>Automatización con IA + n8n</h3>
+              <h3>Automatización con IA</h3>
               <p>
                 Captura y seguimiento de leads, confirmación de citas y
                 reservas, reportes automáticos. Para negocios con varias
