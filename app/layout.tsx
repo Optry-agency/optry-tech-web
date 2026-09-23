@@ -21,10 +21,13 @@ const inter = localFont({
   display: "swap",
 });
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://optry.tech";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: "Optry — Software y automatización con IA para tu negocio",
   description:
-    "Optry reemplaza el caos operativo de tu negocio (hojas de cálculo, WhatsApp, memoria) con software a medida y automatización con IA, sin la fricción de una agencia grande. León, Guanajuato.",
+    "Optry reemplaza el caos operativo de tu negocio (hojas de cálculo, WhatsApp, memoria) con software a medida y automatización con IA, sin la fricción de una agencia grande.",
 };
 
 export default function RootLayout({
