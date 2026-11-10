@@ -1,6 +1,8 @@
 "use server";
 
 import nodemailer from "nodemailer";
+import { headers } from "next/headers";
+import { permitirEnvio } from "@/lib/rate-limit";
 
 type ContactoResult = { ok: boolean; error?: string };
 
@@ -23,6 +25,29 @@ export async function enviarContacto(
   const honeypot = String(formData.get("pagina_web") ?? "").trim();
   if (honeypot) {
     return { ok: true };
+  }
+
+  // Trampa de tiempo: el formulario guarda cuándo se abrió. Una persona
+  // tarda más de unos segundos en llenarlo; un bot lo manda al instante o
+  // sin pasar por la página. Mismo trato que el honeypot: éxito falso.
+  const abiertoEn = Number(formData.get("abierto_en"));
+  if (!abiertoEn || !Number.isFinite(abiertoEn) || Date.now() - abiertoEn < 3000) {
+    return { ok: true };
+  }
+
+  // Límite de envíos por IP (ver lib/rate-limit.ts). Aquí sí se contesta
+  // con error visible, porque puede ser una persona real reintentando.
+  const h = await headers();
+  const ip =
+    h.get("x-real-ip") ??
+    h.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    "desconocida";
+  if (!permitirEnvio(ip)) {
+    return {
+      ok: false,
+      error:
+        "Recibimos varios mensajes seguidos. Espera unos minutos o escríbenos directo a optry.tech@gmail.com.",
+    };
   }
 
   const nombre = sinSaltosDeLinea(String(formData.get("nombre") ?? ""));
@@ -53,9 +78,10 @@ export async function enviarContacto(
     // https://myaccount.google.com/apppasswords, nunca es la contraseña
     // normal de la cuenta). Mientras tanto, el envío falla explícitamente
     // en vez de perder el lead en silencio.
+    // No se loguean los datos del lead: los logs de Vercel no son lugar
+    // para datos personales de prospectos.
     console.error(
-      "OPTRY_SMTP_USER/OPTRY_SMTP_PASS no configuradas — lead no enviado:",
-      { nombre, negocio, contacto, mensaje }
+      "OPTRY_SMTP_USER/OPTRY_SMTP_PASS no configuradas — lead no enviado."
     );
     return {
       ok: false,

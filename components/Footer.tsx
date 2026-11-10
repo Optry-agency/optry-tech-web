@@ -37,12 +37,12 @@ export default function Footer() {
             optry.tech@gmail.com
           </a>
           <a
-            href="https://wa.me/524751032807"
+            href="https://wa.me/524422039835"
             className={styles.email}
             target="_blank"
             rel="noopener noreferrer"
           >
-            WhatsApp +52 475 103 2807
+            WhatsApp +52 442 203 9835
           </a>
         </div>
       </div>
