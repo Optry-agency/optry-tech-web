@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { enviarContacto } from "./actions";
 import styles from "./contacto.module.css";
 
@@ -11,6 +11,14 @@ export default function ContactForm() {
     enviarContacto,
     initialState
   );
+
+  // Momento en que se abrió el formulario, para la trampa de tiempo de
+  // actions.ts. Se fija al montar (no en el render) porque la página es
+  // estática: en el render del servidor quedaría la fecha del build.
+  const [abiertoEn, setAbiertoEn] = useState("");
+  useEffect(() => {
+    setAbiertoEn(String(Date.now()));
+  }, []);
 
   if (state.ok) {
     return (
@@ -58,6 +66,7 @@ export default function ContactForm() {
           <input name="pagina_web" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
+      <input type="hidden" name="abierto_en" value={abiertoEn} />
       {state.error && <p className={styles.error}>{state.error}</p>}
       <button type="submit" className="btn btn--primary" disabled={pending}>
         {pending ? "Enviando…" : "Enviar"}
