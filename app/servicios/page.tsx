@@ -3,9 +3,10 @@ import CircuitArt from "@/components/CircuitArt";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Servicios — Optry",
+  title: "Servicios de software y automatización en León",
   description:
-    "Sistemas a la medida para negocios locales, automatización con IA para operaciones de más volumen, y auditorías de ciberseguridad para sistemas que ya operan en producción.",
+    "Software a medida para negocios locales, automatización con IA para operaciones de más volumen y auditorías de ciberseguridad. Atendemos en León, Guanajuato.",
+  alternates: { canonical: "/servicios" },
 };
 
 export default function Servicios() {
@@ -40,6 +41,9 @@ export default function Servicios() {
             Incluye hardware cuando el negocio lo necesita: básculas,
             impresoras de tickets, lectores de código de barras, tablets.
           </p>
+          <Link href="/servicios/software-a-medida" className="btn btn--secondary reveal" style={{ marginTop: 24 }}>
+            Ver todo sobre software a medida
+          </Link>
         </div>
       </section>
 
@@ -59,6 +63,9 @@ export default function Servicios() {
             <div className="card reveal" style={{ transitionDelay: "0.08s" }}><h3>Agenda y recordatorios</h3><p>Confirmación y recordatorio de citas o reservas sin que alguien tenga que marcar uno por uno.</p></div>
             <div className="card reveal" style={{ transitionDelay: "0.16s" }}><h3>Reportes automáticos</h3><p>La información que hoy juntas a mano, lista sola cuando la necesitas.</p></div>
           </div>
+          <Link href="/servicios/automatizacion-con-ia" className="btn btn--secondary reveal" style={{ marginTop: 24 }}>
+            Ver todo sobre automatización con IA
+          </Link>
         </div>
       </section>
 
@@ -100,6 +107,9 @@ export default function Servicios() {
             sistema — cuéntanos qué maneja tu sistema hoy y lo revisamos
             juntos.
           </p>
+          <Link href="/servicios/ciberseguridad" className="btn btn--secondary reveal" style={{ marginTop: 24 }}>
+            Ver todo sobre la auditoría de ciberseguridad
+          </Link>
         </div>
       </section>
 

@@ -3,8 +3,10 @@ import CircuitArt from "@/components/CircuitArt";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Casos — Optry",
-  description: "Sistemas y automatizaciones que Optry ya construyó y opera.",
+  title: "Casos reales de software a medida en León",
+  description:
+    "Sistemas y automatizaciones que Optry ya construyó y que negocios de León usan todos los días: punto de venta, inventario, producción y captura de leads.",
+  alternates: { canonical: "/casos" },
 };
 
 const casos = [

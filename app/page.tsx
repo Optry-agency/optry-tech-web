@@ -1,6 +1,11 @@
 import Link from "next/link";
 import CircuitArt from "@/components/CircuitArt";
+import type { Metadata } from "next";
 import styles from "./home/Hero.module.css";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (
@@ -10,13 +15,18 @@ export default function Home() {
         <div className={`container ${styles.content}`}>
           <div className="kicker reveal">
             <span className="kicker-line" />
-            <span className="kicker-label">Automatización de software</span>
+            {/* El H1 real (lo que Google toma como tema de la página) va
+                aquí con estilo de kicker; las tres palabras grandes de
+                abajo son solo visuales. */}
+            <h1 className="kicker-label kicker-label--h1">
+              Software a medida y automatización con IA en León, Gto.
+            </h1>
           </div>
-          <h1 className="display reveal" style={{ transitionDelay: "0.05s" }}>
+          <p className="display reveal" style={{ transitionDelay: "0.05s" }}>
             <span>Automatiza</span>
             <span>Conecta</span>
             <span>Escala</span>
-          </h1>
+          </p>
           <p
             className="reveal"
             style={{ maxWidth: 480, fontSize: "1.125rem", transitionDelay: "0.1s" }}

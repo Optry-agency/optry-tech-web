@@ -3,8 +3,10 @@ import CircuitArt from "@/components/CircuitArt";
 import ContactForm from "./ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contacto — Optry",
-  description: "Cuéntanos qué parte de tu operación te quita más tiempo.",
+  title: "Contacto: cotiza tu sistema o automatización",
+  description:
+    "Cuéntanos qué parte de tu operación te quita más tiempo. Respondemos en menos de un día hábil. Optry, León, Guanajuato.",
+  alternates: { canonical: "/contacto" },
 };
 
 export default function Contacto() {
