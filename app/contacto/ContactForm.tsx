@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState, useEffect, useState } from "react";
+import Link from "next/link";
 import { enviarContacto } from "./actions";
 import styles from "./contacto.module.css";
 
@@ -71,6 +72,10 @@ export default function ContactForm() {
       <button type="submit" className="btn btn--primary" disabled={pending}>
         {pending ? "Enviando…" : "Enviar"}
       </button>
+      <p className={styles.privacidad}>
+        Usamos tus datos solo para responderte. Consulta nuestro{" "}
+        <Link href="/aviso-de-privacidad">aviso de privacidad</Link>.
+      </p>
     </form>
   );
 }

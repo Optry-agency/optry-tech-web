@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import CircuitArt from "@/components/CircuitArt";
 import styles from "./Footer.module.css";
+import { NEGOCIO } from "@/lib/negocio";
 
 export default function Footer() {
   return (
@@ -33,16 +34,16 @@ export default function Footer() {
 
         <div className={styles.linkGroup}>
           <span className="tagline-mini">Contacto</span>
-          <a href="mailto:optry.tech@gmail.com" className={styles.email}>
-            optry.tech@gmail.com
+          <a href={`mailto:${NEGOCIO.correo}`} className={styles.email}>
+            {NEGOCIO.correo}
           </a>
           <a
-            href="https://wa.me/524422039835"
+            href={NEGOCIO.whatsapp}
             className={styles.email}
             target="_blank"
             rel="noopener noreferrer"
           >
-            WhatsApp +52 442 203 9835
+            WhatsApp {NEGOCIO.telefono}
           </a>
         </div>
       </div>
@@ -50,7 +51,10 @@ export default function Footer() {
       <div className={`container ${styles.bottomBar}`}>
         <span className="tagline-mini">Optry · Automatización, integraciones y ciberseguridad</span>
         <span className="tagline-mini">
-          © {new Date().getFullYear()} Todos los derechos reservados
+          © {new Date().getFullYear()} Todos los derechos reservados ·{" "}
+          <Link href="/aviso-de-privacidad" className={styles.legalLink}>
+            Aviso de privacidad
+          </Link>
         </span>
       </div>
     </footer>
