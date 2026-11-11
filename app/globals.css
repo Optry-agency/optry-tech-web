@@ -554,3 +554,37 @@ a {
   margin: 12px 0 0 0;
   color: rgba(18, 36, 28, 0.75);
 }
+
+/* Páginas legales — lectura cómoda, sin animaciones */
+.legal {
+  max-width: 760px;
+}
+
+.legal h2 {
+  font-size: 1.25rem;
+  margin-top: 36px;
+  margin-bottom: 10px;
+}
+
+.legal p,
+.legal li {
+  color: rgba(18, 36, 28, 0.82);
+}
+
+.legal ul {
+  padding-left: 22px;
+  margin: 0 0 16px 0;
+}
+
+.legal li {
+  margin-bottom: 6px;
+}
+
+.legal a {
+  color: var(--color-primary);
+}
+
+.legal-fecha {
+  font-size: 0.875rem;
+  color: rgba(18, 36, 28, 0.6) !important;
+}

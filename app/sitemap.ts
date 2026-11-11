@@ -12,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/servicios/ciberseguridad",
     "/casos",
     "/contacto",
+    "/aviso-de-privacidad",
   ];
 
   return routes.map((route) => ({

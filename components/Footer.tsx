@@ -51,7 +51,10 @@ export default function Footer() {
       <div className={`container ${styles.bottomBar}`}>
         <span className="tagline-mini">Optry · Automatización, integraciones y ciberseguridad</span>
         <span className="tagline-mini">
-          © {new Date().getFullYear()} Todos los derechos reservados
+          © {new Date().getFullYear()} Todos los derechos reservados ·{" "}
+          <Link href="/aviso-de-privacidad" className={styles.legalLink}>
+            Aviso de privacidad
+          </Link>
         </span>
       </div>
     </footer>
